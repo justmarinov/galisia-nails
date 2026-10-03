@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="GalIsia Nails Studio — Варна. Маникюр, красота и внимание към всеки детайл.">
+  <title>GalIsia Nails Studio</title>
+  <style>
+    :root {
+      --bg: #070707;
+      --surface: #0e0e0f;
+      --surface-2: #141416;
+      --gold: #e7a565;
+      --gold-light: #f2c18e;
+      --text: #f7f3ee;
+      --muted: #aaa29a;
+      --line: rgba(231,165,101,.20);
+      --shadow: 0 24px 70px rgba(0,0,0,.48);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% -12%, rgba(231,165,101,.13), transparent 34%),
+        linear-gradient(180deg, #111 0%, #070707 44%, #050505 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { -webkit-tap-highlight-color: transparent; }
+
+    .shell {
+      width: min(100%, 680px);
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 22px 18px 44px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(15,15,16,.98), rgba(8,8,9,.98));
+      border: 1px solid rgba(255,255,255,.055);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 30px 24px 22px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: -205px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(231,165,101,.14);
+      filter: blur(15px);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 2px 0 18px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+      opacity: .75;
+    }
+    .eyebrow::after { transform: scaleX(-1); }
+
+    .logo {
+      width: 152px;
+      height: 190px;
+      object-fit: contain;
+      display: block;
+      margin: -2px auto 8px;
+      filter: drop-shadow(0 10px 26px rgba(0,0,0,.35));
+    }
+
+    h1 {
+      margin: 2px 0 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(44px, 11vw, 66px);
+      line-height: .98;
+      font-weight: 400;
+      letter-spacing: .08em;
+      color: var(--gold-light);
+    }
+
+    .subtitle {
+      margin: 16px auto 0;
+      color: #ded7d0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(18px, 4.7vw, 23px);
+      font-style: italic;
+      letter-spacing: .02em;
+    }
+
+    .divider {
+      width: 52px;
+      height: 1px;
+      margin: 25px auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .content {
+      padding: 0 18px 20px;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      margin: 0 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(231,165,101,.075), rgba(255,255,255,.025));
+    }
+
+    .icon-box {
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: #090909;
+      box-shadow: 0 10px 26px rgba(231,165,101,.13);
+    }
+
+    .icon-box svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .info-copy { min-width: 0; text-align: left; }
+    .info-label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .info-value {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .map-card {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: #e7e7e7;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(.16) saturate(.72) contrast(.96);
+    }
+
+    .map-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 -80px 75px rgba(0,0,0,.25);
+    }
+
+    .map-action {
+      position: absolute;
+      z-index: 2;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 58px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #090909;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      box-shadow: 0 15px 38px rgba(0,0,0,.32);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .map-action svg { width: 21px; height: 21px; fill: currentColor; }
+
+    .section-title {
+      margin: 26px 3px 13px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: left;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .social {
+      min-height: 67px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      color: var(--text);
+      background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 19px;
+      text-decoration: none;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .social .social-icon {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: rgba(231,165,101,.12);
+      color: var(--gold-light);
+      border: 1px solid rgba(231,165,101,.16);
+    }
+    .social svg { width: 21px; height: 21px; fill: currentColor; }
+    .social-copy { min-width: 0; text-align: left; }
+    .social-name { display: block; font-size: 14px; font-weight: 750; }
+    .social-note { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+
+    .call {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 62px;
+      padding: 14px 20px;
+      border-radius: 19px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #090909;
+      font-size: 16px;
+      font-weight: 850;
+      box-shadow: 0 14px 34px rgba(231,165,101,.12);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .call svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .footer {
+      margin: 22px 0 2px;
+      color: #706a65;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    @media (hover:hover) {
+      .map-action:hover, .call:hover { transform: translateY(-2px); filter: brightness(1.035); }
+      .social:hover {
+        transform: translateY(-2px);
+        border-color: rgba(231,165,101,.30);
+        background: rgba(231,165,101,.055);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .shell { padding: 12px 10px 28px; }
+      .card { border-radius: 27px; }
+      .hero { padding: 24px 18px 18px; }
+      .content { padding: 0 13px 15px; }
+      .logo { width: 132px; height: 166px; }
+      .map-card { height: 285px; }
+      .social { padding: 10px; gap: 9px; }
+      .social .social-icon { flex-basis: 36px; width: 36px; height: 36px; border-radius: 12px; }
+      .social-note { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="hero">
+        <div class="eyebrow">Nails Studio · Varna</div>
+        <img class="logo" src="logo.png" alt="GalIsia Nails Studio logo">
+        <h1>GALISIA</h1>
+        <p class="subtitle">Красотата е в детайла!</p>
+        <div class="divider"></div>
+      </header>
+
+      <div class="content">
+        <div class="info-card">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          </div>
+          <div class="info-copy">
+            <span class="info-label">Адрес</span>
+            <p class="info-value">гр. Варна, ул. „Братя Бъкстон“ 27</p>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=27%20%D1%83%D0%BB.%20%D0%91%D1%80%D0%B0%D1%82%D1%8F%20%D0%91%D1%8A%D0%BA%D1%81%D1%82%D0%BE%D0%BD,%20%D0%92%D0%B0%D1%80%D0%BD%D0%B0&z=15&output=embed"
+            title="GalIsia Nails Studio location"></iframe>
+          <a class="map-action" href="https://www.google.com/maps/search/?api=1&query=27%20%D1%83%D0%BB.%20%D0%91%D1%80%D0%B0%D1%82%D1%8F%20%D0%91%D1%8A%D0%BA%D1%81%D1%82%D0%BE%D0%BD,%20%D0%92%D0%B0%D1%80%D0%BD%D0%B0" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+            Заведи ме там
+          </a>
+        </div>
+
+        <div class="section-title">Последвай GalIsia</div>
+        <div class="social-grid">
+          <a class="social" href="https://www.instagram.com/galisianailsstudio" target="_blank" rel="noopener" aria-label="Instagram">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm11.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></span>
+            <span class="social-copy"><span class="social-name">Instagram</span><span class="social-note">@galisianailsstudio</span></span>
+          </a>
+
+          <a class="social" href="https://www.tiktok.com/@galisianailsstudio?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M19.6 6.4a5.1 5.1 0 0 1-3.5-1.5A5.1 5.1 0 0 1 14.8 2h-3.6v13.5a2.8 2.8 0 1 1-2.4-2.8V9.1a6.4 6.4 0 1 0 6 6.4V9a8.7 8.7 0 0 0 4.8 1.4z"/></svg></span>
+            <span class="social-copy"><span class="social-name">TikTok</span><span class="social-note">@galisianailsstudio</span></span>
+          </a>
+
+          <a class="social" href="https://www.facebook.com/p/GalIsia-nails-studio-61593774190066/" target="_blank" rel="noopener" aria-label="Facebook">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.8 1.8-1.8H17V2.3c-.3 0-1.4-.3-2.7-.3-2.7 0-4.6 1.7-4.6 4.8v2.7H7V13h2.7v9h3.8z"/></svg></span>
+            <span class="social-copy"><span class="social-name">Facebook</span><span class="social-note">GalIsia nails studio</span></span>
+          </a>
+
+          <a class="social" href="tel:+359876377002" aria-label="Телефон">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.3 1.1l-2.3 2.2z"/></svg></span>
+            <span class="social-copy"><span class="social-name">Телефон</span><span class="social-note">087 637 7002</span></span>
+          </a>
+        </div>
+
+        <a class="call" href="tel:+359876377002">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.3 1.1l-2.3 2.2z"/></svg>
+          Обади се · 087 637 7002
+        </a>
+
+        <div class="footer">GALISIA · NAILS STUDIO · VARNA</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
